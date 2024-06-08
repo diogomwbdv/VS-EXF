@@ -86,3 +86,43 @@ a.desc:after {
 .form-group {
     margin-bottom: 1rem;
 }
+
+/* Table.php */
+
+.btn-outline-success,
+.btn-outline-primary,
+.btn-outline-danger {
+    background-color: transparent;
+    border: 2px solid;
+    padding: 6px 12px;
+    font-size: 18px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-success i {
+    color: #28a745;
+}
+
+.btn-outline-primary i {
+    color: #007bff;
+}
+
+.btn-outline-danger i {
+    color: #dc3545;
+}
+
+.btn-outline-success:hover,
+.btn-outline-primary:hover,
+.btn-outline-danger:hover {
+    background-color: transparent;
+    opacity: 0.8;
+}
+
+.btn-outline-success i:hover,
+.btn-outline-primary i:hover,
+.btn-outline-danger i:hover {
+    color: inherit;
+}

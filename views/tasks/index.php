@@ -8,12 +8,26 @@ use yii\widgets\Pjax;
 /** @var app\models\TasksSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Lista de Tarefas';
+
+
+
 
 ?>
 
+<?php if (Yii::$app->user->isGuest): ?>
+
+    <p><?php echo 'Faça login para visualizar a tabela.' ?></p>
+
+    <p><?php echo 'Não é possível acessar às ações via URL até estar logado. Clique em Login para continuar.' ?></p>
+
+
+<?php endif; ?>
+
 <?php if (!Yii::$app->user->isGuest): ?>
+    <div style="width: 100px; height: 100px;">
+    </div>
     <!-- Estrutura da tabela -->
+
     <?php require 'table.php'; ?>
 
     <!-- Modal para criar tarefa -->

@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
     <div class="table-responsive">
         <?php Pjax::begin(['id' => 'tasks-pjax']); ?>
         <table class="table table-bordered table-hover table-striped">
-            <thead class="thead-dark">
+            <thead class="thead-dark text-center">
                 <tr>
                     <th><input type="checkbox" id="select-all"></th>
                     <th>Título</th>
@@ -24,7 +24,7 @@ use yii\widgets\Pjax;
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $index => $model): ?>
-                    <tr data-id="<?= Html::encode($model->id) ?>">
+                    <tr data-id="<?= Html::encode($model->id) ?>" class="text-center">
                         <td><input type="checkbox" class="task-checkbox" value="<?= Html::encode($model->id) ?>"></td>
                         <td><?= Html::encode($model->title) ?></td>
                         <td><?= Html::encode($model->task_description) ?></td>
@@ -33,14 +33,16 @@ use yii\widgets\Pjax;
                         <td><?= Html::encode($model->task_status) ?></td>
                     </tr>
                 <?php endforeach; ?>
+            </tbody>
+            <tfoot>
                 <tr>
                     <td colspan="6" class="text-right">
-                        <?= Html::a('Criar Tarefa', 'javascript:void(0);', ['class' => 'btn btn-success', 'id' => 'createTask']) ?>
-                        <?= Html::a('Editar Selecionadas', 'javascript:void(0);', ['class' => 'btn btn-primary', 'id' => 'edit-selected']) ?>
-                        <?= Html::a('Eliminar Selecionadas', 'javascript:void(0);', ['class' => 'btn btn-danger', 'id' => 'delete-selected']) ?>
+                        <?= Html::a('<i class="fas fa-plus"></i> Criar', 'javascript:void(0);', ['class' => 'btn btn-outline-success', 'id' => 'createTask']) ?>
+                        <?= Html::a('<i class="fas fa-edit"></i> Editar', 'javascript:void(0);', ['class' => 'btn btn-outline-primary', 'id' => 'edit-selected']) ?>
+                        <?= Html::a('<i class="fas fa-trash-alt"></i> Eliminar', 'javascript:void(0);', ['class' => 'btn btn-outline-danger', 'id' => 'delete-selected']) ?>
                     </td>
                 </tr>
-            </tbody>
+            </tfoot>
         </table>
         <?php Pjax::end(); ?>
     </div>
