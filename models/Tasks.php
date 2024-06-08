@@ -55,9 +55,15 @@ class Tasks extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-        if ($insert) {
+        //Gera data de criação
+        if ($this->isNewRecord) {
             $this->created_at = date('Y-m-d H:i:s');
         }
+        //Gera data de conclusão se status === 'Finalizado'
+        if ($this->isAttributeChanged('task_status') && $this->task_status === 'Finalizado') {
+            $this->completed_at = date('Y-m-d H:i:s');
+        }
+
         return parent::beforeSave($insert);
     }
 }

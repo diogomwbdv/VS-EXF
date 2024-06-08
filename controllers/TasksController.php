@@ -72,17 +72,15 @@ class TasksController extends Controller
     {
         $model = new Tasks();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        // Tarefa criada com sucesso
+        Yii::$app->session->setFlash('success', 'Tarefa criada com sucesso.');
+        return $this->redirect(['index']);
+    }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+    return $this->renderAjax('_form', [
+        'model' => $model,
+    ]);
     }
 
     /**

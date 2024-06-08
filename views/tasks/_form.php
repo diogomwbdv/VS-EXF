@@ -23,8 +23,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'task_status')->dropDownList([ 'Finalizado' => 'Finalizado', 'Em Curso' => 'Em Curso', 'Pendente' => 'Pendente', ], ['prompt' => '']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
+    <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+</div>
 
     <?php ActiveForm::end(); ?>
 
